@@ -45,7 +45,7 @@ Add this as a new Apache site config:
     ProxyPreserveHost On
     RewriteCond %{HTTP:Upgrade} websocket [NC]
     RewriteCond %{HTTP:Connection} upgrade [NC]
-    RewriteRule .* "ws://localhost:11000/$1" [P,L]
+    RewriteRule ^/?(.*) "ws://localhost:11000/$1" [P,L]
     ProxyPass / http://localhost:11000/
     ProxyPassReverse / http://localhost:11000/
 
